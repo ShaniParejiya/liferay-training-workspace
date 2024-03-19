@@ -1,0 +1,5 @@
+Bundle-Name: custom-login-page-fragment-hook
+Bundle-SymbolicName: custom.login.page.fragment.hook
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.login.web;bundle-version="6.0.43"
+Portal-Bundle-Version: 7.4.13

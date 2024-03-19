@@ -1,0 +1,10 @@
+Bundle-Name: aixtor-employee-db-api
+Bundle-SymbolicName: com.aixtor.training.liferay.employee.service.builder.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.aixtor.training.liferay.employee.service.builder.exception,\
+	com.aixtor.training.liferay.employee.service.builder.model,\
+	com.aixtor.training.liferay.employee.service.builder.service,\
+	com.aixtor.training.liferay.employee.service.builder.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../aixtor-employee-db-service/service.xml

@@ -1,0 +1,4 @@
+Bundle-Name: aixtor-custom-action-web
+Bundle-SymbolicName: com.aixtor.training.liferay.exampleaction
+Bundle-Version: 1.0.0
+Export-Package: com.aixtor.training.liferay.exampleaction.constants

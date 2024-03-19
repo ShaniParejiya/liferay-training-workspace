@@ -1,0 +1,14 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+
+	//compile project(":modules:aixtor-employee-management-system:aixtor-employee-management-system-api")
+	
+	compile project(":modules:aixtor-employee-db:aixtor-employee-db-api")
+	
+	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.1.0"
+	
+	compileOnly group: "javax.portlet", name: "portlet-api", version: "2.0"
+	
+	implementation group: 'javax.servlet.jsp.jstl', name: 'jstl', version: '1.2'
+	
+}

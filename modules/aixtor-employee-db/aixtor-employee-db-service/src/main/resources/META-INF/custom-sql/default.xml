@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+	<sql id="getEmployeeAllDetails">
+        <![CDATA[
+            SELECT CAST(employee.employeeId AS char) as employeeId,employee.firstName,employee.lastName,employee.email,CAST(employee.mobileNumber AS char) as mobileNumber,employee.address,department.departmentName,designation.designationName,branch.branchName			
+            from aixtor_db_employee as employee
+			JOIN aixtor_db_department as department ON department.departmentId = employee.departmentId
+			JOIN aixtor_db_designation as designation ON designation.designationId = employee.designationId
+			JOIN aixtor_db_branch as branch ON branch.branchId = employee.branchId 
+        ]]>
+	</sql>
+
+	<sql id="getSearchByAllDetails">
+        <![CDATA[
+        	SELECT CAST(employee.employeeId AS char) as employeeId,employee.firstName as firstName,employee.lastName as lastName,employee.email as email,CAST(employee.mobileNumber AS char) as mobileNumber,employee.address as address,department.departmentName as departmentName,designation.designationName as designationName,branch.branchName as branchName
+            from aixtor_db_employee as employee
+			JOIN aixtor_db_department as department ON department.departmentId = employee.departmentId
+			JOIN aixtor_db_designation as designation ON designation.designationId = employee.designationId
+			JOIN aixtor_db_branch as branch ON branch.branchId = employee.branchId
+			WHERE employeeId LIKE CONCAT('%',?,'%')
+			OR firstName LIKE CONCAT('%',?,'%')
+			OR lastName LIKE CONCAT('%',?,'%')
+			OR email LIKE CONCAT('%',?,'%')
+			OR mobileNumber LIKE CONCAT('%',?,'%')
+			OR address LIKE CONCAT('%',?,'%')
+			OR designationName LIKE CONCAT('%',?,'%')
+   			OR departmentName LIKE CONCAT('%',?,'%')
+   			OR branchName LIKE CONCAT('%',?,'%')
+        ]]>
+	</sql>
+	
+	<sql id="getEmployeesByBranch">
+		<![CDATA[
+			SELECT emp.employeeId,concat(emp.firstName,emp.lastName) as EmployeeName, emp.mobileNumber,emp.email,emp.designationId,d.designationName,emp.departmentId,dep.departmentName,
+			emp.branchId,b.branchName,c.name as countryName,s.stateName,city.cityName
+			FROM aixtor_db_employee emp
+			LEFT JOIN aixtor_db_designation d ON emp.designationId=d.designationId
+			LEFT JOIN aixtor_db_department dep ON emp.departmentId=dep.departmentId
+			LEFT JOIN liferay_training.aixtor_db_branch b ON emp.branchId=b.branchId
+			LEFT JOIN country c ON b.countryId=c.countryId
+			LEFT JOIN aixtor_db_state s ON b.stateId = s.stateId
+			LEFT JOIN aixtor_db_city city ON b.cityId=city.cityId
+		]]>
+	</sql>
+</custom-sql>

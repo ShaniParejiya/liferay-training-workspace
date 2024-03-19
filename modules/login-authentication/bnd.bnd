@@ -1,0 +1,4 @@
+Bundle-Name: login-authentication
+Bundle-SymbolicName: com.aixtor.training.liferay.login-authentication
+Bundle-Version: 1.0.0
+Export-Package: com.aixtor.training.liferay.constants

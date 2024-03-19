@@ -1,0 +1,4 @@
+Bundle-Name: employee-details-web
+Bundle-SymbolicName: employee.details.web
+Bundle-Version: 1.0.0
+Export-Package: com.aixtor.training.liferay.constants

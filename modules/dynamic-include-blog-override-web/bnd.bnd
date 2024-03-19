@@ -1,0 +1,4 @@
+Bundle-Name: dynamic-include-blog-override-web
+Bundle-SymbolicName: com.aixtor.training.liferay.dynamicinclude
+Bundle-Version: 1.0.0
+Export-Package: com.aixtor.training.liferay.dynamicinclude.constants

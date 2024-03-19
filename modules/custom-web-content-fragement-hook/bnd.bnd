@@ -1,0 +1,5 @@
+Bundle-Name: custom-web-content-fragement-hook
+Bundle-SymbolicName: custom.web.content.fragement.hook
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.journal.content.web;bundle-version="6.0.65"
+Portal-Bundle-Version: 7.4.13

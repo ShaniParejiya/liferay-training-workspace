@@ -1,0 +1,10 @@
+Bundle-Name: aixtor-audit-db-api
+Bundle-SymbolicName: com.aixtor.training.liferay.audit.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.aixtor.training.liferay.audit.exception,\
+	com.aixtor.training.liferay.audit.model,\
+	com.aixtor.training.liferay.audit.service,\
+	com.aixtor.training.liferay.audit.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../aixtor-audit-db-service/service.xml

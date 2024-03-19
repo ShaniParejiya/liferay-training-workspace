@@ -1,0 +1,7 @@
+// Check GETTING_STARTED.markdown for information regarding usage.
+
+dependencies {
+	
+	compileOnly project(":modules:aixtor-employee-db:aixtor-employee-db-api")
+
+}

@@ -1,0 +1,4 @@
+Bundle-Name: custom-jsp-bag-example-web
+Bundle-SymbolicName: com.aixtor.training.liferay.cutsomjspbag
+Bundle-Version: 1.0.0
+Export-Package: com.aixtor.training.liferay.cutsomjspbag.constants

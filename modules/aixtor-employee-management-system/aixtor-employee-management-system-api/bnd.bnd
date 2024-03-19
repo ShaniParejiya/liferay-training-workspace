@@ -1,0 +1,10 @@
+Bundle-Name: aixtor-employee-management-system-api
+Bundle-SymbolicName: com.aixtor.training.liferay.aixtor.employee.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.aixtor.training.liferay.exception,\
+	com.aixtor.training.liferay.model,\
+	com.aixtor.training.liferay.service,\
+	com.aixtor.training.liferay.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../aixtor-employee-management-system-service/service.xml

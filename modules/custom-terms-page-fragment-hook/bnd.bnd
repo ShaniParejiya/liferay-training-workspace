@@ -1,0 +1,5 @@
+Bundle-Name: custom-terms-page-fragment-hook
+Bundle-SymbolicName: custom.terms.page.fragment.hook
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.layout.utility.page.terms.of.use;bundle-version="1.0.11"
+Portal-Bundle-Version: 7.4.13

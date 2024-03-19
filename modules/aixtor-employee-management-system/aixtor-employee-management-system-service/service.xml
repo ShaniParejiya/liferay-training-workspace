@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds"
+	package-path="com.aixtor.training.liferay">
+	<namespace>AIXTOR</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" 
+		remote-service="false" session-factory="sampleSessionFactory" table="foo" 
+		tx-manager="sampleTransactionManager uuid="true""> -->
+
+	<entity local-service="true" name="Employee"
+		remote-service="true" uuid="true">
+		<column name="employeeId" primary="true" type="long" />
+		<column name="firstName" type="String" />
+		<column name="lastName" type="String" />
+		<column name="email" type="String" />
+		<column name="mobileNumber" type="long" />
+		<column name="departmentId" type="long" />
+		<column name="branchId" type="long" />
+		<column name="designationId" type="long" />
+		<column name="address" type="String" />
+		
+		<!-- audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<order by="asc">
+			<order-column name="employeeId" />
+		</order>
+	</entity>
+
+	<entity local-service="true" name="Department"
+		remote-service="true" uuid="true">
+		<column name="departmentId" primary="true" type="long" />
+		<column name="departmentName" type="String" />
+		<column name="departmentHead" type="String" />
+		
+		<!-- audit Fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<order by="asc">
+			<order-column name="departmentId" />
+		</order>
+		
+		<finder name="GetDepartmentNameById" return-type="String" >
+            <finder-column name="departmentId" />
+        </finder>
+	</entity>
+
+	<entity local-service="true" name="Branch" remote-service="true"
+		uuid="true">
+		<column name="branchId" primary="true" type="long" />
+		<column name="branchName" type="String" />
+		<column name="countryId" type="long" />
+		<column name="stateId" type="long" />
+		<column name="cityId" type="long" />
+		
+		<!-- audit Fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<order by="asc">
+			<order-column name="branchId" />
+		</order>
+		
+		<finder name="GetbranchNameById" return-type="String" >
+            <finder-column name="branchId" />
+        </finder>
+	</entity>
+
+	<entity local-service="true" name="Designation"
+		remote-service="true" uuid="true">
+		<column name="designationId" primary="true" type="long" />
+		<column name="designationName" type="String" />
+		
+		<!-- audit Fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<order by="asc">
+			<order-column name="designationId" />
+		</order>
+		
+		<finder name="GetdesignationNameById" return-type="String" >
+            <finder-column name="designationId" />
+        </finder>
+	</entity>
+
+	<entity local-service="true" name="State" remote-service="true"
+		uuid="true">
+		<column name="stateId" primary="true" type="long" />
+		<column name="stateName" type="String" />
+		<column name="countryId" type="long" />
+		
+		<!-- audit Fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<order by="asc">
+			<order-column name="stateId" />
+		</order>
+		
+		<finder name="countryId" return-type="Collection">
+			<finder-column name="countryId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="City" remote-service="true"
+		uuid="true">
+		<column name="cityId" primary="true" type="long" />
+		<column name="cityName" type="String" />
+		<column name="stateId" type="long" />
+		
+		<!-- audit Fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<order by="asc">
+			<order-column name="cityId" />
+		</order>
+		
+		<finder name="stateId" return-type="Collection">
+			<finder-column name="stateId" />
+		</finder>
+		
+	</entity>
+</service-builder>

@@ -1,0 +1,4 @@
+Bundle-Name: CityTracker
+Bundle-SymbolicName: com.aixtor.training.liferay.city.tracker
+Bundle-Version: 1.0.0
+Export-Package: com.aixtor.training.liferay.constants

@@ -1,0 +1,7 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	
+	compile project(":modules:aixtor-audit-api")
+	
+	compile project(":modules:aixtor-audit-db:aixtor-audit-db-api")
+}

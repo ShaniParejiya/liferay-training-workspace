@@ -1,0 +1,214 @@
+components:
+    schemas:
+        EmployeeDataRequest:
+            type: object
+            properties:
+                branchId:
+                    description: branch Id
+                    type: integer
+                    format: int64
+                branchName:
+                    description: The branchName
+                    type: string
+
+        EmployeeDetaByDepartmentRequest:
+            type: object
+            properties:
+                departmentId:
+                    description: Department Id
+                    type: integer
+                    format: int64
+                departmentName:
+                    description: Department Name
+                    type: string           
+        EmployeeDataResponse:
+            type: object
+            properties:
+                status:
+                    description: The status code of the status
+                    type: object
+                    properties:
+                        code:
+                            description: The status code of the request
+                            type: string
+                        message:
+                            description: The message of the request
+                            type: string
+                employees:
+                    description: The employee Details
+                    type: array
+                    items:
+                        format: object
+                        type: object
+                        properties:
+                            employeeName:
+                                description: The employee name from employee
+                                type: string
+                            employeeId:
+                                description: The employee Id from employee
+                                type: integer
+                                format: int64
+                            mobile:
+                                description: The mobile Number from employee
+                                type: string
+                            email:
+                                description: email address from employee
+                                type: string
+                            designationName:
+                                description: Designation Name from Employee
+                                type: string
+                            departmentName:
+                                description: Department Name from employee
+                                type: string
+                            branchName:
+                                description: Branch Name from employee
+                                type: string
+                branchs:
+                    description: The Branch Details
+                    type: array
+                    items:
+                        format: object
+                        type: object
+                        properties:
+                            branchId:
+                                description: branch ID from branch
+                                type: integer
+                                format: int64
+                            branchName:
+                                description: branch Name from branch
+                                type: string
+                            city:
+                                description: branch city 
+                                type: string
+                            state:
+                                description: state of branch
+                                type: string
+                            country:
+                                description: country of branch
+                                type: string
+
+
+                totalEmployee:
+                    description: total employee details
+                    type: integer
+                    format: int64
+
+        EmployeeDetaByDepartmentResponse:
+            type: object
+            properties:
+                status:
+                    description: The status code of the status
+                    type: object
+                    properties:
+                        code:
+                            description: The status code of the request
+                            type: string
+                        message:
+                            description: The message of the request
+                            type: string
+                employees:
+                    description: The employee Details
+                    type: array
+                    items:
+                        format: object
+                        type: object
+                        properties:
+                            employeeName:
+                                description: The employee name from employee
+                                type: string
+                            employeeId:
+                                description: The employee Id from employee
+                                type: integer
+                                format: int64
+                            mobile:
+                                description: The mobile Number from employee
+                                type: string
+                            email:
+                                description: email address from employee
+                                type: string
+                            designationName:
+                                description: Designation Name from Employee
+                                type: string
+                            departmentName:
+                                description: Department Name from employee
+                                type: string
+                            branchName:
+                                description: Branch Name from employee
+                                type: string
+                departments:
+                    description: The Department Details
+                    type: array
+                    items:
+                        format: object
+                        type: object
+                        properties:
+                            departmentId:
+                                description: Department ID from department
+                                type: integer
+                                format: int64
+                            departmentName:
+                                description: Department Name from department
+                                type: string
+                            departmentHead:
+                                description: Department Head from department
+                                type: string
+
+                totalEmployee:
+                    description: total employee details
+                    type: integer
+                    format: int64                
+info:
+    description: "AixtorEmployeeHeadless REST API"
+    license:
+        name: "Apache 2.0"
+        url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+    title: "AixtorEmployeeHeadless"
+    version: v1.0
+openapi: 3.0.1
+paths:
+    "/getEmployeesByBranch":
+        post:
+            description: Fetches employee details based on either                branch name or branch ID. If both branch name            and ID are provided, the branch name is                 verified to match the given branch ID before            fetching details.
+            operationId: getEmployeesByBranch
+            tags: ["GetEmployeesByBranch"]
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/EmployeeDataRequest"
+                    application/xml:
+                        schema:
+                            $ref: '#/components/schemas/EmployeeDataRequest'
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/EmployeeDataResponse"
+                        application/xml:
+                           schema:
+                               $ref: "#/components/schemas/EmployeeDataResponse"
+    "/getEmployeesByDepartment":
+        post:
+            description: if departmentId comes, then you need to fetch the details on the basis of departmentId, if departmentName comes, then you need to fetch details on the basis of departmentName and if both comes thn first you need to verify that the department Name is same of the given department id, thn only you need to fetch the details
+            operationId: getEmployeesByDepartment
+            tags: ["GetEmployeesByDepartment"]
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/EmployeeDetaByDepartmentRequest"
+                    application/xml:
+                        schema:
+                            $ref: '#/components/schemas/EmployeeDetaByDepartmentRequest'
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/EmployeeDetaByDepartmentResponse"
+                        application/xml:
+                           schema:
+                               $ref: "#/components/schemas/EmployeeDetaByDepartmentResponse"

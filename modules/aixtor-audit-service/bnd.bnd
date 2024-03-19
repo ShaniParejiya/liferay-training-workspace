@@ -1,0 +1,3 @@
+Bundle-Name: aixtor-audit-service
+Bundle-SymbolicName: com.aixtor.training.liferay.auditlog
+Bundle-Version: 1.0.0

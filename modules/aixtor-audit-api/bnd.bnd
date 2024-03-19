@@ -1,0 +1,4 @@
+Bundle-Name: aixtor-audit-api
+Bundle-SymbolicName: com.aixtor.training.liferay.audit
+Bundle-Version: 1.0.0
+Export-Package: com.aixtor.training.liferay.audit.api
