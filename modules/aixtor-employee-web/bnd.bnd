@@ -2,3 +2,5 @@ Bundle-Name: aixtor-employee-web
 Bundle-SymbolicName: com.aixtor.training.liferay.employee
 Bundle-Version: 1.0.0
 Export-Package: com.aixtor.training.liferay.employee.constants
+Import-Package: *;resolution:=optional
+-fixupmessages "Classes found in the wrong directory"; restrict:=error; is:=warning

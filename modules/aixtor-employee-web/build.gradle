@@ -8,4 +8,22 @@ dependencies {
 	implementation group: 'javax.servlet.jsp.jstl', name: 'jstl', version: '1.2'
 	
 	compile project(":modules:aixtor-audit-api")
+	
+	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas
+    //compile group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '4.1.2'
+    
+	compileInclude group: 'org.apache.poi', name: 'poi', version: '5.2.0'
+    compileInclude group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.0'
+    
+    //compileInclude group: 'org.apache.poi', name: 'poi-ooxml', version: '4.0.0', transitive:false
+    
+    //for pdf 
+    //compileInclude group: 'com.itextpdf', name: 'itextpdf', version: '5.5.12'
+     
+     // https://mvnrepository.com/artifact/com.itextpdf/itextpdf
+	compileInclude group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13.3'
+	// https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
+	compileInclude group: 'org.apache.pdfbox', name: 'pdfbox', version: '3.0.0'
+     
+    
 }

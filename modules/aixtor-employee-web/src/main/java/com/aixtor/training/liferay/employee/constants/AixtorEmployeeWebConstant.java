@@ -74,5 +74,35 @@ public class AixtorEmployeeWebConstant {
 	
 	public static final String EMPLOYEE_LIST_BY_ID="employeeListById";
 	
+	//Export TO Excel
 	
+	public static final String EXPORT_EMPLOYEE_ID ="Employee ID";
+	
+	public static final String EXPORT_FIRST_NAME ="First Name";
+	
+	public static final String EXPORT_LAST_NAME ="Last Name";
+	
+	public static final String EXPORT_EMAIL ="Email";
+	
+	public static final String EXPORT_MOBILE_NUMBER ="Mobile Number";
+	
+	public static final String EXPORT_DEPARTMENT_NAME ="Department Name";
+	
+	public static final String EXPORT_BRANCH_NAME ="Branch Name";
+	
+	public static final String EXPORT_DESIGNATION_NAME ="Designation Name";
+	
+	public static final String EXPORT_ADDRESS ="Address";
+	
+	public static final String ARIAL ="Arial";
+	
+	public static final String EMPLOYEE_CHEETSHEET_ ="employeesheet_";
+	
+	public static final String XLSX=".xlsx";
+	
+	public static final String PDF=".pdf";
+	
+	public static final String CONTENT_DISPOSITION="Content-Disposition";
+	
+	public static final String ATTACHMENT_FILENAME="attachment; filename=";
 }
