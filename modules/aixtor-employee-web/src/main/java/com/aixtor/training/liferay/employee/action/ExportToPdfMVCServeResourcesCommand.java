@@ -1,37 +1,27 @@
 package com.aixtor.training.liferay.employee.action;
 
 import com.aixtor.training.liferay.employee.constants.AixtorEmployeeWebConstant;
+
 import com.aixtor.training.liferay.employee.constants.AixtorEmployeeWebPortletKeys;
 import com.aixtor.training.liferay.employee.service.builder.model.EmployeeAllDetailsModel;
 import com.aixtor.training.liferay.employee.service.builder.service.EmployeeLocalService;
 import com.aixtor.training.liferay.employee.util.ExportToPdfEmployeeDetails;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
+
 import com.itextpdf.text.pdf.PdfWriter;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
-import com.liferay.portal.kernel.servlet.HttpHeaders;
-import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
-import java.util.stream.Stream;
 
 import javax.portlet.PortletException;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -64,33 +54,33 @@ public class ExportToPdfMVCServeResourcesCommand implements MVCResourceCommand{
 		PdfWriter pdfWriter = null;
 		if (!searchKeyword.trim().isEmpty()) {
 			employeeList = employeeLocalService.getEmployeeAllDetails(searchKeyword);
-			
 			if (employeeList == null || employeeList.isEmpty()) {
-				resourceRequest.setAttribute(AixtorEmployeeWebConstant.NO_DATA_FOUND,
-						AixtorEmployeeWebConstant.NO_EMPLOYEE_DATA_FOUND);
-				
+				resourceRequest.setAttribute(AixtorEmployeeWebConstant.NO_DATA_FOUND,AixtorEmployeeWebConstant.NO_EMPLOYEE_DATA_FOUND);
 			} else {
+				HttpServletResponse httpServletResponse = PortalUtil.getHttpServletResponse(resourceResponse);
 				try {
-					HttpServletResponse httpServletResponse = PortalUtil.getHttpServletResponse(resourceResponse);
-					
-					exportToPdfEmployeeDetails.exportToPdf(employeeList, resourceResponse, resourceRequest, httpServletResponse,pdfWriter);
-					resourceRequest.setAttribute(AixtorEmployeeWebConstant.EMPLOYEE_LIST, employeeList);
-				} catch (java.io.IOException e) {
-					log.info("Error in Catch == > " + e.getMessage());
-					e.printStackTrace();
+					exportToPdfEmployeeDetails.exportToPdf(employeeList, resourceResponse, resourceRequest, httpServletResponse, pdfWriter);
+				} catch (IOException e) {
+					log.error("error in catch ===> "+ e.getMessage());
+//					e.printStackTrace();
 				}
+				resourceRequest.setAttribute(AixtorEmployeeWebConstant.EMPLOYEE_LIST, employeeList);
 			}
 		} else {
+			employeeList = employeeLocalService.getEmployeeDetails();	
+			HttpServletResponse httpServletResponse = PortalUtil.getHttpServletResponse(resourceResponse);
 			try {
-				employeeList = employeeLocalService.getEmployeeDetails();	
-				HttpServletResponse httpServletResponse = PortalUtil.getHttpServletResponse(resourceResponse);
-				exportToPdfEmployeeDetails.exportToPdf(employeeList, resourceResponse, resourceRequest, httpServletResponse,pdfWriter);
-				resourceRequest.setAttribute(AixtorEmployeeWebConstant.EMPLOYEE_LIST, employeeList);
-			} catch (java.io.IOException e) {
-				log.info("Error in Catch == > " + e.getMessage());
-				e.printStackTrace();
-			}	
+				exportToPdfEmployeeDetails.exportToPdf(employeeList, resourceResponse, resourceRequest, httpServletResponse, pdfWriter);
+			} catch (IOException e) {
+				log.error("error in else part ==> " + e.getMessage());
+//				e.printStackTrace();
+			}
+			resourceRequest.setAttribute(AixtorEmployeeWebConstant.EMPLOYEE_LIST, employeeList);	
 		}
 		return false;
 	}
+	
+
+	
+    
 }

@@ -105,4 +105,7 @@ public class AixtorEmployeeWebConstant {
 	public static final String CONTENT_DISPOSITION="Content-Disposition";
 	
 	public static final String ATTACHMENT_FILENAME="attachment; filename=";
+	
+	//pdf
+	public static final String SITE_LOGO="C:\\images\\financelogo.jpg";
 }

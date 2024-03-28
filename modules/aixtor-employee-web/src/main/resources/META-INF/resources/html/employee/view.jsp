@@ -107,7 +107,7 @@ function getPdfServeResources(){
 			responseType: 'blob'
 		},
         success: function (response, xhrStatus, request) {
-	       	console.log(response);
+	       console.log(response);
 	       	console.log(xhrStatus);
 	       	console.log(request);
        		 var x = request.getResponseHeader('Content-Disposition');
@@ -120,7 +120,7 @@ function getPdfServeResources(){
 	          a.attr("href", link);
 	          $("body").append(a);
 	          a[0].click();
-	          $("body").remove(a); 
+	          $("body").remove(a);  
         },
         error: function (xhr, status, error) {
             console.log("Something wrong !!!");
