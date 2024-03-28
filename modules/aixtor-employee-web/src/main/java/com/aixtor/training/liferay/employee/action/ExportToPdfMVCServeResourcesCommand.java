@@ -62,7 +62,6 @@ public class ExportToPdfMVCServeResourcesCommand implements MVCResourceCommand{
 					exportToPdfEmployeeDetails.exportToPdf(employeeList, resourceResponse, resourceRequest, httpServletResponse, pdfWriter);
 				} catch (IOException e) {
 					log.error("error in catch ===> "+ e.getMessage());
-//					e.printStackTrace();
 				}
 				resourceRequest.setAttribute(AixtorEmployeeWebConstant.EMPLOYEE_LIST, employeeList);
 			}
